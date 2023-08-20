@@ -1,0 +1,166 @@
+.mainHome {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-block: 3rem;
+    margin-inline: auto;
+
+    .timeTable {
+        background-color: var(--tpPri);
+        padding: 1rem;
+        padding-top: 0;
+        border-radius: .7rem;
+        box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
+        height: fit-content;
+
+        h1 {
+            padding: .5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            span {
+                background-color: var(--paleAccent);
+                padding: .3rem;
+                border-radius: .3rem;
+                font-size: .9rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                opacity: .8;
+                display: none;
+            }
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            li {
+                background-color: var(--priColor);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: .5rem;
+                gap: 3rem;
+                border-radius: .3rem;
+
+                &.closed {
+                    color: var(--priColor);
+                    background-color: var(--warningRed);
+
+                    p {
+                        text-transform: uppercase;
+                        color: var(--priColor);
+                        padding: .3rem;
+                        border-radius: .3rem;
+                        font-weight: 600;
+                    }
+                }
+
+                p {
+                    font-weight: 550;
+                    color: var(--tpSec);
+
+                    span {
+                        background-color: var(--paleAccent);
+                        padding: .3rem;
+                        border-radius: .2rem;
+                        font-weight: 600;
+                        color: var(--secColor);
+
+                        .breakInside {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .supply {
+        background-color: var(--tpPri);
+        padding: 1rem;
+        padding-top: 0;
+        border-radius: .5rem;
+        box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
+
+        h1 {
+            padding: .5rem;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            li {
+                background-color: var(--priColor);
+                display: flex;
+                flex-direction: column;
+                padding: .5rem;
+                border-radius: .5rem;
+
+                p {
+                    color: var(--tpSec);
+                    max-width: 120ch;
+                }
+
+                span {
+                    background-color: var(--paleAccent);
+                    padding: .3rem;
+                    border-radius: .2rem;
+                    font-weight: 600;
+                    color: var(--secColor);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1700px) {
+    .mainHome {
+        width: 97%;
+
+        .supply {
+            max-width: 50%;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .mainHome {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+
+        .timeTable {
+            width: 100%;
+
+            h1 {
+    
+                span {
+                    display: block;
+                }
+            }
+
+            ul {
+                li {
+                    gap: .5rem;
+
+                    p {
+                        span {
+                            .breakInside {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .supply {
+            max-width: unset;
+        }
+    }
+}

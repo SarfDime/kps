@@ -1,0 +1,125 @@
+.loginMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
+    margin-inline: auto;
+    width: fit-content;
+    margin-block: 3%;
+    border-radius: .5rem;
+    padding: 1rem;
+    width: 30%;
+    gap: 2rem;
+
+    .loginTitle {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding-bottom: .5rem;
+
+        a {
+            transition: 300ms all;
+            background-color: var(--holiday);
+            display: flex;
+            align-items: center;
+            border-radius: 50%;
+
+            svg {
+                height: 2.5rem;
+                width: 2.5rem;
+                color: var(--priColor);
+            }
+
+            &:focus-visible {
+                outline: .1rem solid var(--warningRed);
+            }
+
+            &:hover {
+                filter: sepia(.7);
+            }
+
+            &:active {
+                path {
+                    fill: var(--warningRed);
+                }
+            }
+        }
+
+        &::after {
+            content: '';
+            height: .2rem;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            background-color: var(--holiday);
+        }
+    }
+
+    .loginInputs {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            font-size: 1.3rem;
+            padding: .5rem;
+        }
+
+        input {
+            border: .2rem solid var(--tpPri2);
+            background: var(--tpPri);
+            border-radius: .5rem;
+            width: 15rem;
+            height: 3rem;
+            text-indent: 1rem;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .accountButtons{
+        display: flex;
+        gap: 1rem;
+
+        .loginButton, .registerButton {
+            box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
+            border: .2rem solid var(--tpPri2);
+            border-radius: .5rem;
+            color: var(--priColor);
+            font-size: 1rem;
+            background: var(--holiday);
+            padding: .7rem 1.8rem;
+            margin-bottom: .5rem;
+            transition: 300ms all;
+    
+            &:focus-visible {
+                border-color: var(--warningRed);
+            }
+    
+            &:hover {
+                filter: sepia(.7);
+            }
+    
+            &:active {
+                background: var(--warningRed);
+            }
+        }
+    }
+}
+
+@media (max-width: 1300px) {
+    .loginMain{
+        width: unset;
+        max-width: 75%;
+    }
+}
+
+@media (max-width: 800px) {
+    .loginMain{
+        gap: 3rem;
+        width: unset;
+        max-width: 90%;
+    }
+}

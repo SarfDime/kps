@@ -1,0 +1,114 @@
+Header {
+    nav {
+        position: relative;
+        background-color: var(--priColor);
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            bottom: 0rem;
+            left: -2rem;
+            border-bottom-left-radius: 1.5rem;
+            transform: scaleX(-1);
+            box-shadow: -.5rem .5rem 0 0 var(--priColor);
+            z-index: 0;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            bottom: 0rem;
+            right: -2rem;
+            border-bottom-left-radius: 1.2rem;
+            box-shadow: -.5rem .5rem 0 0 var(--priColor);
+            z-index: 0;
+        }
+
+
+        ul {
+            display: flex;
+            gap: .7rem;
+            padding-top: .7rem;
+            padding-inline: .7rem;
+            z-index: 1;
+
+            li {
+                a {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+                    padding: .6rem .7rem;
+
+                    background: var(--tpPri);
+                    color: var(--tpSec);
+                    font-size: 1.2rem;
+                    font-weight: 550;
+                    border-radius: .7rem;
+                    z-index: 0;
+                    transition: all ease 450ms;
+
+                    overflow: hidden;
+
+                    svg {
+                        height: 2rem;
+
+                        path,
+                        circle {
+                            stroke-dasharray: 100;
+                            stroke-dashoffset: 0;
+                            transition: stroke-dashoffset .6s ease-out;
+                        }
+                    }
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        inset: 0;
+                        background: linear-gradient(-45deg, var(--paleAccent) 0%, var(--accent) 50%, var(--tertAccent) 100%);
+                        opacity: 0;
+                        transition: opacity 450ms ease;
+                        z-index: -1;
+                    }
+
+                    &:focus-visible {
+                        border: .2rem solid var(--accent);
+                    }
+
+                    &:hover {
+                        background: var(--paleAccent);
+
+                        svg {
+                            path,
+                            circle {
+                                &:first-child {
+                                    stroke-dashoffset: 100;
+                                }
+                            }
+                        }
+                    }
+
+                    &:active {
+                        background: var(--accent);
+                    }
+
+                    &.active {
+                        background: var(--accent);
+
+                        pointer-events: none;
+
+                        &::before {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,102 @@
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    background: linear-gradient(95deg,
+            hsl(43deg 100% 42%) 0%,
+            hsl(43deg 100% 43%) 4%,
+            hsl(43deg 100% 44%) 9%,
+            hsl(43deg 100% 45%) 13%,
+            hsl(44deg 100% 46%) 17%,
+            hsl(44deg 100% 47%) 22%,
+            hsl(44deg 100% 48%) 26%,
+            hsl(44deg 100% 49%) 30%,
+            hsl(44deg 100% 50%) 35%,
+            hsl(44deg 100% 50%) 39%,
+            hsl(44deg 100% 50%) 43%,
+            hsl(44deg 100% 50%) 48%,
+            hsl(44deg 100% 50%) 52%,
+            hsl(44deg 100% 50%) 57%,
+            hsl(44deg 100% 50%) 61%,
+            hsl(44deg 100% 50%) 65%,
+            hsl(44deg 100% 49%) 70%,
+            hsl(44deg 100% 48%) 74%,
+            hsl(44deg 100% 46%) 78%,
+            hsl(43deg 100% 45%) 83%,
+            hsl(43deg 100% 44%) 87%,
+            hsl(43deg 100% 43%) 91%,
+            hsl(43deg 100% 41%) 96%,
+            hsl(43deg 100% 40%) 100%);
+
+    .logOutButton {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        background-color: var(--tpPri);
+        padding: .8rem;
+        border-radius: 1rem;
+
+        transition: all 400ms ease;
+
+        p {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        svg {
+            height: 1.8rem;
+
+            path {
+                stroke-dasharray: 100;
+                stroke-dashoffset: 0;
+                transition: stroke-dashoffset .5s ease-out;
+            }
+        }
+
+        &:focus-visible {
+            background: var(--holiday);
+        }
+
+        &:hover {
+            background: var(--priColor);
+
+            svg {
+
+                path {
+                    &:not(:last-child) {
+                        stroke-dashoffset: 100;
+                    }
+                }
+            }
+        }
+
+        &:active {
+            background: var(--accent);
+        }
+    }
+
+    .heroLogo {
+        $firstLogoValue: 20vw;
+        $firstLogoValue: 20svw;
+        $secondLogoValue: 15rem;
+        height: min($firstLogoValue, $secondLogoValue);
+        margin-block: 2rem;
+    }
+}
+
+@media (max-width: 800px){
+header{
+    .logOutButton{
+        top: .5rem;
+        right: .5rem;
+        padding: .4rem;
+        p{
+            display: none;
+        }
+    }
+}
+}

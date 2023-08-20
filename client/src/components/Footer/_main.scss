@@ -1,0 +1,103 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: var(--tpPri);
+    bottom: 0;
+
+    .privacyPolicy,
+    .credits {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border-radius: .5rem;
+        padding: .5rem;
+        color: var(--secColor);
+
+        svg {
+            height: 2.3rem;
+        }
+    }
+
+    .credits {
+        text-transform: uppercase;
+        transition: all 300ms ease;
+
+        svg {
+            height: 2rem;
+
+            path {
+                stroke-dasharray: 100;
+                stroke-dashoffset: 0;
+                transition: stroke-dashoffset .6s ease-out;
+            }
+        }
+
+        &:focus-visible {
+            border: .2rem solid var(--accent);
+        }
+
+        &:hover {
+            background: var(--paleAccent);
+
+            svg {
+
+                path {
+                    &:first-child {
+                        stroke-dashoffset: 100;
+                    }
+                }
+            }
+        }
+
+        &:active {
+            background: var(--accent);
+        }
+    }
+
+    .privacyPolicy {
+        a {
+            text-transform: uppercase;
+            color: var(--secAccent);
+            font-weight: 600;
+            padding: .3rem;
+            padding-top: .4rem;
+            border-radius: .5rem;
+            transition: 300ms all;
+
+            &:visited {
+                color: var(--holiday);
+            }
+
+            &:focus-visible {
+                border: .2rem solid var(--accent);
+            }
+
+            &:hover {
+                background: var(--tpPri3);
+            }
+
+            &:active {
+                background: var(--accent);
+            }
+        }
+    }
+}
+
+@media (max-width: 600px){
+    footer{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        .privacyPolicy{
+            flex-direction: column-reverse;
+            gap: .5rem;
+        }
+
+        .credits{
+            gap: .5rem;
+        }
+    }
+}

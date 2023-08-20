@@ -1,0 +1,37 @@
+.notification {
+    position: fixed;
+    top: 2rem;
+
+    right: 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
+    border: .2rem solid var(--accent);
+    background-color: var(--priColor);
+    padding: 2rem;
+    border-top-left-radius: .7rem;
+    border-bottom-left-radius: .7rem;
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10;
+    transform: translateX(200%);
+    transition: all .7s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &.show-notification {
+        transform: translate(0);
+    }
+}
+
+@media (max-width: 800px) {
+    .notification {
+        padding: 1rem;
+        h2 {
+            font-size: 1.3rem;
+        }
+    }
+}
