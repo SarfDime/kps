@@ -18,7 +18,7 @@ export default function Notification() {
                 clearTimeout(timer)
             }
         }
-    }, [content, uniqueId])
+    }, [content, uniqueId, dispatch])
 
     return (
         <div className={`notification ${show ? 'show-notification' : ''}`}>
