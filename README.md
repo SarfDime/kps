@@ -13,6 +13,7 @@ The font used is Segoe-UI
 ## Run Locally
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- First do npm install for each directory, parent, client and server
 
 ## In the project directory, you can run:
 - To run both backend and frontend at once, in the parent directory do:
