@@ -29,7 +29,7 @@ function News() {
 
     async function fetchNewsData() {
         try {
-            const data = await fetchData("http://localhost:5000/news/read")
+            const data = await fetchData()
             dispatch(setNewsArray(data))
         } catch (error) {
             console.error("Error fetching news:", error)
@@ -69,14 +69,16 @@ function News() {
         }
     }
     const handleAdd = async () => {
-        const { title, message } = newsState.newsObject
+        const { title, message, priority } = newsState.newsObject
 
         if (!title || !message) {
             dispatch(setNotification("Fill in all the fields"))
             return
         }
         try {
-            const createdItem = await createNews(newsState.newsObject)
+            const createdItem = await createNews({
+                title: title, message: message, priority: priority
+            })
             dispatch(setNotification(createdItem))
             fetchNewsData()
         } catch (error) {
@@ -154,7 +156,7 @@ function News() {
                                 value={newsState.newsObject.priority}
                                 onChange={(e) => handleInputChange("priority", e.target.value)}
                             >
-                                <option value="">Normal</option>
+                                <option value="normal">Normal</option>
                                 <option value="important">Important</option>
                                 <option value="holiday">Holiday</option>
                             </select>

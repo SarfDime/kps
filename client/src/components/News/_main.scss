@@ -4,14 +4,15 @@
     justify-content: center;
     margin-block: 3rem;
     margin-inline: auto;
+    width: 90%;
 
     ul {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: 1.5rem;
-        width: 80%;
-        min-height: 65vh;
+        // width: 100%;
+        min-height: 50vh;
 
         li {
             position: relative;
@@ -253,6 +254,7 @@
 
                 input,
                 textArea {
+                    font-size: 1.1rem;
                     border-radius: .3rem;
                     padding: .3rem;
                     background-color: var(--tpPri);

@@ -1,11 +1,10 @@
-export async function fetchData(endpoint) {
-    const response = await fetch(endpoint)
-    const data = await response.json()
-    return data
-}
+const mainURL = 'http://localhost:5000'
 
+///////// ACCOUNT APIS /////////
+
+/// CHECK LOGIN
 export async function checkLogin() {
-    const url = 'http://localhost:5000/auth/checkLogin'
+    const url = `${mainURL}/auth/checkLogin`
 
     const response = await fetch(url, {
         method: 'POST',
@@ -19,8 +18,9 @@ export async function checkLogin() {
     return textResponse
 }
 
+/// LOGIN
 export async function login(username, password) {
-    const url = 'http://localhost:5000/auth/login'
+    const url = `${mainURL}/auth/login`
     const requestBody = {
         username: username,
         password: password,
@@ -39,8 +39,9 @@ export async function login(username, password) {
     return textResponse
 }
 
+/// LOGOUT
 export async function logout() {
-    const url = 'http://localhost:5000/auth/logout'
+    const url = `${mainURL}/auth/logout`
     const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -53,8 +54,9 @@ export async function logout() {
     return textResponse
 }
 
+/// REGISTER
 export async function register(username, password) {
-    const url = 'http://localhost:5000/auth/createAcc'
+    const url = `${mainURL}/auth/createAcc`
     const requestBody = {
         username: username,
         password: password,
@@ -77,8 +79,18 @@ export async function register(username, password) {
     return textResponse
 }
 
+///////// NEWS APIS ///////////
+
+/// READ
+export async function fetchData() {
+    const response = await fetch(`${mainURL}/news/read`)
+    const data = await response.json()
+    return data
+}
+
+/// DELETE
 export async function deleteNewsItem(ID) {
-    const url = `http://localhost:5000/news/delete/${ID}`
+    const url = `${mainURL}/news/delete/${ID}`
 
     const response = await fetch(url, {
         method: 'DELETE',
@@ -89,8 +101,9 @@ export async function deleteNewsItem(ID) {
     return data
 }
 
+/// UPDATE
 export async function updateNewsItem(ID, updatedData) {
-    const url = `http://localhost:5000/news/update/${ID}`
+    const url = `${mainURL}/news/update/${ID}`
 
     const response = await fetch(url, {
         method: 'PATCH',
@@ -111,7 +124,7 @@ export async function updateNewsItem(ID, updatedData) {
 }
 
 export async function createNews(newsData) {
-    const url = `http://localhost:5000/news/create`
+    const url = `${mainURL}/news/create`
 
     const response = await fetch(url, {
         method: 'POST',

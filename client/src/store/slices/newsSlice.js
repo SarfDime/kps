@@ -6,7 +6,7 @@ const initialState = {
         _id: '',
         title: ``,
         message: ``,
-        priority: ``,
+        priority: `normal`,
         date: '',
     },
     newsArray: [],

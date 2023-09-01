@@ -4,7 +4,7 @@ function Footer() {
     return (
         <footer>
             <div className="privacyPolicy">
-                <h3>© 2021 KPS - priemyselný tovar, s.r.o </h3>
+                <h3>© 2023 KPS - priemyselný tovar, s.r.o </h3>
                 <a href={require("../../assets/GDPR.pdf")} target="_blank" rel="noopener noreferrer">
                     Security Policy
                 </a>

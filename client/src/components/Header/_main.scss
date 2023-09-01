@@ -80,8 +80,8 @@ header {
     }
 
     .heroLogo {
-        $firstLogoValue: 20vw;
-        $firstLogoValue: 20svw;
+        $firstLogoValue: 19vw;
+        $firstLogoValue: 19svw;
         $secondLogoValue: 15rem;
         height: min($firstLogoValue, $secondLogoValue);
         margin-block: 2rem;

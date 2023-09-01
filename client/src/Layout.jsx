@@ -6,11 +6,13 @@ import { useLocation } from 'react-router-dom'
 const Layout = ({ children }) => {
     const location = useLocation()
     const isLoginRoute = location.pathname === '/login'
+    const isMatchedRoute = ['/contact', '/news', '/'].includes(location.pathname)
+
     return (
         <>
-            {!isLoginRoute && <Header />}
+            {!isLoginRoute && isMatchedRoute && <Header />}
             {children}
-            {!isLoginRoute && <Footer />}
+            {!isLoginRoute && isMatchedRoute && <Footer />}
         </>
     )
 }

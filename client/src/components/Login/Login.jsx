@@ -64,13 +64,13 @@ function Login() {
                     </svg>
                 </NavLink>
             </div>
-            <div className="loginInputs">
+            <form className="loginInputs">
                 <label htmlFor="username">Username</label>
                 <input
                     id="username"
                     type="text"
+                    autoComplete="true"
                     placeholder="Enter username"
-                    min={6}
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
@@ -79,11 +79,10 @@ function Login() {
                     id="password"
                     type="password"
                     placeholder="Enter Password"
-                    min={8}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-            </div>
+            </form>
             <div className="accountButtons">
                 <button className="loginButton" onClick={handleLogin}>
                     Login

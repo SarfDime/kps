@@ -7,6 +7,7 @@ import Contact from './components/Contact/Contact'
 import News from './components/News/News'
 import Login from './components/Login/Login'
 import Notification from './components/Notification/Notification'
+import NotFound from './components/NotFound/NotFound'
 import Layout from './Layout'
 import { checkLogin, fetchData } from './shared/api'
 import { setNewsArray } from "./store/slices/newsSlice"
@@ -15,11 +16,11 @@ import { setLogin } from './store/slices/loginSlice'
 function App() {
   const dispatch = useDispatch()
   const isLoggedIn = useSelector((state) => state.logIn.isLoggedIn)
-  
+
   useEffect(() => {
     async function fetchNewsData() {
       try {
-        const data = await fetchData('http://localhost:5000/news/read')
+        const data = await fetchData()
         dispatch(setNewsArray(data))
       } catch (error) {
         console.error('Error fetching news:', error)
@@ -47,7 +48,7 @@ function App() {
       }
       checkLoginOuter()
     }
-  }, [dispatch])
+  }, [dispatch, isLoggedIn])
 
   return (
     <>
@@ -59,6 +60,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/news" element={<News />} />
             <Route path="/login" element={<Login />} />
+
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
       </BrowserRouter>
