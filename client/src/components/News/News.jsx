@@ -1,6 +1,10 @@
-import React from "react"
+import React, { useRef } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import NewsCard from "./NewsCard"
+
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
 import {
     toggleFormOn,
     toggleFormOff,
@@ -68,6 +72,7 @@ function News() {
             console.error(error)
         }
     }
+
     const handleAdd = async () => {
         const { title, message, priority } = newsState.newsObject
 
@@ -101,6 +106,16 @@ function News() {
 
     const handleInputChange = (field, value) => {
         dispatch(setNewsFormValue({ field, value }))
+    }
+
+    const quillRef = useRef(null);
+
+
+    const handleGetValue = () => {
+        if (quillRef.current) {
+            const editor = quillRef.current.getEditor()
+            handleInputChange("message", editor.root.innerHTML)
+        }
     }
 
     return (
@@ -142,13 +157,12 @@ function News() {
                                 placeholder="Enter Title"
                             />
                             <label htmlFor="#messageInput">Message</label>
-                            <textarea
-                                type="text"
+                            <ReactQuill
                                 id="messageInput"
+                                ref={quillRef}
                                 value={newsState.newsObject.message}
-                                onChange={(e) => handleInputChange("message", e.target.value)}
-                                placeholder="Enter Message"
-                            />
+                                onChange={handleGetValue}>
+                            </ReactQuill>
                         </div>
                         <div>
                             <select
@@ -211,7 +225,7 @@ function News() {
                 </button>
             ) : null}
 
-            <ul>
+            <ul className="newsUl">
                 {newsState.isFormMinimized && addNewsArray.length > 0 ? (
                     addNewsArray.map((item, i) => (
                         <NewsCard

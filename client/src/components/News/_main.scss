@@ -6,13 +6,13 @@
     margin-inline: auto;
     width: 90%;
 
-    ul {
+    .newsUl {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: 1.5rem;
         // width: 100%;
-        min-height: 50vh;
+        // min-height: 50vh;
 
         li {
             position: relative;
@@ -22,8 +22,9 @@
             box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
             padding: .7rem;
             // max-height: 65%;
-            
             // overflow: hidden;
+            list-style: none;
+            height: fit-content;
 
             .titleDiv {
                 position: relative;
@@ -113,11 +114,33 @@
                 background-color: var(--tpPri2);
                 font-size: 1.15rem;
                 line-height: 1.5rem;
-                white-space: pre-line;
-                text-align: left;
                 overflow-wrap: break-word;
-                // overflow-y: scroll;
-                // max-height: 90%;
+
+                ol, ul{
+                    max-width: unset;
+                    height: unset;
+                    max-height: unset;
+                    min-height: unset;
+                    border-radius: unset;
+                    background-color: unset;
+                    box-shadow: unset;
+                    padding: unset;
+                    text-decoration: unset;
+
+                    li{
+                        max-width: unset;
+                        height: unset;
+                        max-height: unset;
+                        min-height: unset;
+                        border-radius: unset;
+                        background-color: unset;
+                        box-shadow: unset;
+                        padding: unset;
+                        text-decoration: unset;
+                        list-style: unset;
+                        margin-left: 1.5rem;
+                    }
+                }
             }
 
             .editToolsLi {
@@ -166,7 +189,7 @@
         }
     }
 
-    .noNews{
+    .noNews {
         min-height: 60vh;
         margin-block: 3%;
         color: var(--tpPri3);
@@ -182,8 +205,11 @@
         display: flex;
         flex-direction: column;
         min-width: 40%;
-        top: 15%;
+        top: 0;
+        bottom: 0;
+        margin-block: auto;
         transition: transform 500ms ease;
+        height: fit-content;
 
         .tabBar {
             position: relative;
@@ -242,7 +268,7 @@
         }
 
         .newsInputs {
-            div {
+            div:not(.quill) {
                 display: flex;
                 flex-direction: column;
                 gap: .3rem;
@@ -261,12 +287,6 @@
                     border: .2rem solid var(--tpPri2);
                 }
 
-                #messageInput {
-                    min-width: 100%;
-                    min-height: 2rem;
-                    height: 7rem;
-                }
-
                 &:last-child {
                     margin-top: 1rem;
 
@@ -274,6 +294,19 @@
                         padding: .3rem;
                         width: fit-content;
                         font-size: 1.1rem;
+                    }
+                }
+            }
+
+            .quill {
+                .ql-toolbar {
+                    display: flex;
+                    flex-direction: row;
+                }
+
+                .ql-container {
+                    .ql-tooltip {
+                        display: none !important;
                     }
                 }
             }
@@ -295,6 +328,7 @@
                 &.add {
                     background-color: var(--holiday);
                 }
+
                 &.save {
                     background-color: var(--holiday);
                 }
@@ -372,36 +406,39 @@
 }
 
 @media (max-width: 1600px) {
-.news{
-    .addNewsForm {
-        min-width: 85%;
-        top: 10%;
+    .news {
+        .addNewsForm {
+            min-width: 85%;
+            top: 10%;
 
-        .tabBar {
-            div {
-                display: flex;
-                align-items: center;
-                gap: .3rem;
+            .tabBar {
+                div {
+                    display: flex;
+                    align-items: center;
+                    gap: .3rem;
+                }
+            }
+
+            .newsButtons {
+                margin-top: 5%;
             }
         }
-
-        .newsButtons {
-            margin-top: 5%;
-        }
     }
-}
 }
 
 @media (max-width: 800px) {
     .news {
         ul {
             width: 90%;
-            li{
+
+            li {
                 max-width: unset;
                 min-width: 100%;
-                .titleDiv{
+
+                .titleDiv {
                     gap: 1rem;
-                    section{
+
+                    section {
                         max-width: 50%;
                     }
                 }

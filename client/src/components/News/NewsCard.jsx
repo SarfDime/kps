@@ -59,7 +59,7 @@ function NewsCard(props) {
                 </section>
                 <p>{formatDate(date)}</p>
             </div>
-            <p>{message}</p>
+            <p dangerouslySetInnerHTML={{ __html: message }}></p>
 
             {(!newsState.isFormMinimized && isLoggedIn) && (
                 <div className="editToolsLi">
